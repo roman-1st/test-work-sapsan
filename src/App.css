@@ -1,0 +1,50 @@
+.App {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 390px;
+  width: 100vw;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  position: relative;
+
+  height: 340px;
+  width: 390px;
+  width: 100vw;
+}
+
+.LoaderContainer{
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Loader {
+  background-image: url('./images/Loader.svg');
+  width: 30px;
+  height: 30px;
+  animation: loader-rotate 2s linear infinite;
+}
+
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* .Loader p{
+  background-image: url('./images/Loader.svg');
+  width: 30px;
+  height: 30px;
+} */

@@ -1,0 +1,144 @@
+.SearchContainer{
+    width: 1264px;
+    position: absolute;
+
+}
+
+@media screen and (max-width: 1400px){
+    .SearchContainer{
+        width: 882px;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .SearchContainer{
+        width: 732px;
+    }
+}
+
+@media screen and (max-width: 1080px){
+    .SearchContainer{
+        width: auto;
+    }
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+
+}
+
+.textInputField {
+    background-color: #EEEEEE;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    padding: 14.5px 8px;
+    padding-left: 6px;
+    margin-right: 8px;
+    cursor: pointer;
+
+    width: 25vw;
+    max-width: 350px;
+    min-width: 198px;
+    height: 19px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+}
+
+
+.textInputField::placeholder{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.iconLeft{
+    background: url("../images/inputImage.svg") no-repeat center left;
+    position: absolute;
+    width: 20px;
+    height: 19px;
+    z-index: 1;
+    margin: 15px 6px 14px 10px;
+    
+}
+
+.textInputField[type='text']{
+    background-color: #EEEEEE;
+    padding-left:36px;
+    padding-right: 30px;
+    background-position: 10px center;
+
+    position: relative;
+    display: inline-block;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px; 
+}
+
+.iconRight {
+    background: url('../images/deletebuttoninput.svg') no-repeat center right;
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    z-index: 1;
+    top: 15px;
+    left: 75%;
+}
+
+
+@media screen and (max-width: 800px) {
+    .iconRight {
+        left: 67%;
+    }
+}
+
+.textInputField:hover {
+    background-color: #E6E6E6;
+
+}
+
+
+.getFetch {
+    background-color: #EB0C0C;
+    width: 82px;
+    height: 48px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+
+}
+
+.getFetch:hover{
+    background-color: #C30000;
+    outline: none;
+    transition: 0.2s;
+}
+
+.getFetch:active {
+    background-color: #C30000;
+    outline: none;
+}
+
+.noResult {
+    margin-top: 40px;
+}

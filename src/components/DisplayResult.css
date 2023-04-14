@@ -1,0 +1,85 @@
+.DisplayResult {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 114px 114px 114px;
+    grid-template-rows: 114px;
+
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.modalImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+.modalImage{
+    top: 0;
+    left: 0;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    object-fit: cover;
+  
+    width: 767.47px;
+    height: 760px;
+}
+
+.closeModal {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    top: 24px;
+    right: 24px;
+    background: url('../images/CloseModal.svg');
+    background-size: cover;
+    background-position: center;
+}
+.closeModal:hover{
+    background-color: #FFFFFF;
+    border-radius: 16px;
+}
+
+
+
+
+
+@media screen and (max-width: 800px) {
+    .modalImageContainer{
+        align-items: flex-start;
+    }
+    .modalImage{
+        width: 600px;
+        height: 600px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .modalImageContainer{
+        align-items: flex-start;
+    }
+    .modalImage{
+        width: 430px;
+        height: 436px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .modalImageContainer{
+        align-items: flex-start;
+    }
+    .modalImage{
+        width: 390px;
+        height: 386px;
+    }
+}
