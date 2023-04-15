@@ -4,6 +4,7 @@
   flex-direction: column;
   width: 390px;
   width: 100vw;
+  
 }
 
 .container {
@@ -18,6 +19,21 @@
   width: 390px;
   width: 100vw;
 }
+
+.searchContainer1 {
+  width: 1264px;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1400px) {
+  .searchContainer1 {
+    display: block;
+    width: auto;
+
+  }
+}
+
 
 .LoaderContainer{
   width: 100vw;

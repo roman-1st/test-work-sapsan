@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
-import DisplayResult from './components/DisplayResult';
+import ResultContainer from './components/ResultContainer';
 import SearchContainer from './components/SearchContainer'
 import { useTypedSelector } from './hooks/useTypedSelector';
 
 
 function App() {
   const {isLoading, images, noGetImages} = useTypedSelector(state => state.images)
-  const loader: string = "./images/inputImage.svg"
-
   const styleSearchBlock = {
     height: isLoading || images.length > 0 || noGetImages? "104px" : "340px"
   }
@@ -19,7 +17,14 @@ function App() {
         style={styleSearchBlock}
         className="container"
       >
+        <div 
+        style={{
+          display: isLoading || images.length > 0 || noGetImages ? 'block' : 'flex',
+        }}
+        className='searchContainer1'>
         <SearchContainer />
+        </div>
+       
       </div>
       {isLoading ? (
         <div className="LoaderContainer">
@@ -27,7 +32,7 @@ function App() {
         </div>
       ) : (
         <div>
-          <DisplayResult />
+          <ResultContainer />
         </div>
       )}
     </div>

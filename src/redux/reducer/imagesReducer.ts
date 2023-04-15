@@ -1,7 +1,7 @@
 import { ImagesState, ImagesActionTypes, ImagesActions } from '../../types/images';
 
-const initialState : ImagesState = {
-    requestTitle: 'snow',
+const initialState: ImagesState = {
+    requestTitle: '',
     isLoading: false,
     images: [],
     noGetImages: false,
@@ -10,21 +10,27 @@ const initialState : ImagesState = {
 }
 
 export const imagesReducer = (state = initialState, action: ImagesActions): ImagesState => {
-    switch(action.type) {
+    switch (action.type) {
         case ImagesActionTypes.SET_REQUEST_TITLE:
             return {
                 ...state,
                 requestTitle: action.payload
             }
 
-        case ImagesActionTypes.LOADING_IMAGES: 
+        case ImagesActionTypes.REMOVE_REQUEST_TITLE:
+            return {
+                ...state,
+                requestTitle: '',
+            }
+
+        case ImagesActionTypes.LOADING_IMAGES:
             return {
                 ...state,
                 isLoading: true,
             }
 
         case ImagesActionTypes.GET_IMAGES:
-            if(action.payload.length > 0) {
+            if (action.payload.length > 0) {
                 return {
                     ...state,
                     isLoading: false,
@@ -32,7 +38,7 @@ export const imagesReducer = (state = initialState, action: ImagesActions): Imag
                     noGetImages: false,
                 }
             }
-            if (action.payload.length === 0 ) {
+            if (action.payload.length === 0) {
                 return {
                     ...state,
                     isLoading: false,
@@ -55,9 +61,9 @@ export const imagesReducer = (state = initialState, action: ImagesActions): Imag
                 modalImage: null,
             }
 
-        default: 
-        return {
-            ...state
-        }
+        default:
+            return {
+                ...state
+            }
     }
 }

@@ -1,66 +1,32 @@
 .SearchContainer{
-    width: 1264px;
-    position: absolute;
-
+    position:absolute;
 }
 
 @media screen and (max-width: 1400px){
     .SearchContainer{
-        width: 882px;
-    }
-}
-
-@media screen and (max-width: 1080px){
-    .SearchContainer{
-        width: 732px;
-    }
-}
-
-@media screen and (max-width: 1080px){
-    .SearchContainer{
+        position: relative;
+        left: 0px;
         width: auto;
     }
 }
+
+.inputBlock {
+    position: relative;
+}
+
 
 .inputContainer {
     display: flex;
     align-items: center;
     margin-bottom: 16px;
-
 }
-
-.textInputField {
-    background-color: #EEEEEE;
-    border: none;
-    outline: none;
-    border-radius: 12px;
-    padding: 14.5px 8px;
-    padding-left: 6px;
-    margin-right: 8px;
-    cursor: pointer;
-
-    width: 25vw;
-    max-width: 350px;
-    min-width: 198px;
-    height: 19px;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-
-}
-
 
 .textInputField::placeholder{
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
+    overflow: visible;
 }
 
 .iconLeft{
@@ -80,33 +46,58 @@
     background-position: 10px center;
 
     position: relative;
-    display: inline-block;
 
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 19px; 
-}
 
-.iconRight {
-    background: url('../images/deletebuttoninput.svg') no-repeat center right;
+    background-color: #EEEEEE;
+
+    border: none;
+    outline: none;
+    border-radius: 12px;
+
+    padding: 14.5px 0;
+    padding-left: 36px;
+    padding-right: clamp(43px , 12vw, 195px);
+    margin-right: 8px;
+    cursor: pointer;
+
+
+    width: 189px;
+    height: 19px;
+
+    display: flex;
+    display: inline-block;
+
+    flex-direction: row;
+    align-items: center;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+.inputBlock::after{
+    content: url('../images/deletebuttoninput.svg');
+    display: none;
+
     position: absolute;
+    z-index: 33;
     width: 19px;
     height: 19px;
-    z-index: 1;
-    top: 15px;
-    left: 75%;
-}
+    top: 16px;
+    right: 19px;
+}   
 
-
-@media screen and (max-width: 800px) {
-    .iconRight {
-        left: 67%;
-    }
+.inputBlock:hover::after{
+    display: inline-block;
 }
 
 .textInputField:hover {
     background-color: #E6E6E6;
+    transition: 0.2s;
 
 }
 
@@ -139,6 +130,16 @@
     outline: none;
 }
 
-.noResult {
+.noResult{
     margin-top: 40px;
+}
+
+.noResult p{
+    font-family: 'SF Pro Display', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #787878;
+    margin: 0;
 }

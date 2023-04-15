@@ -23,7 +23,7 @@ export const getFetchImagesAction = (title: string) => {
     }
 }
 
-export const fetchMoreImagesAction = () => {                    //для пагинации
+export const fetchMoreImagesAction = () => {                            //для пагинации
     return async (dispatch: Dispatch<ImagesActions>) => {
         try {
             const response = await axios.get('https://api.unsplash.com/search/photos?', {

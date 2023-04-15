@@ -14,6 +14,7 @@ export interface Image {
 
 export enum ImagesActionTypes {
     SET_REQUEST_TITLE = "SET_REQUEST_TITLE",
+    REMOVE_REQUEST_TITLE = "REMOVE_REQUEST_TITLE",
     GET_IMAGES = "GET_IMAGES",
     LOADING_IMAGES = "LOADING_IMAGES",
     OPEN_MODAL = "OPEN_MODAL",
@@ -21,9 +22,13 @@ export enum ImagesActionTypes {
     ERROR_MESSAGE = "ERROR_MESSAGE"
 }
 
-interface setRequestTitle {
+interface setRequestTitleAction {
     type: ImagesActionTypes.SET_REQUEST_TITLE,
     payload: string,
+}
+
+interface removeRequestTitleAction {
+    type: ImagesActionTypes.REMOVE_REQUEST_TITLE,
 }
 
 interface loadingImagesAction {
@@ -45,7 +50,8 @@ interface closeModalAction {
 }
 
 export type ImagesActions =
-    setRequestTitle |
+    setRequestTitleAction |
+    removeRequestTitleAction |
     getImageAction |
     loadingImagesAction |
     openModalAction |

@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useActions } from "../hooks/useActions";
-import './Image.css'
+import './ModalImage.css'
 
 interface Image {
     el: any,
 }
 
-const Image = (element: Image) => {
+const ModalImage = (element: Image) => {
     const {openModalAction} = useActions()
-
     const elem = element.el
 
     function setModal () {
@@ -26,4 +25,4 @@ const Image = (element: Image) => {
     );
 }
 
-export default Image
+export default ModalImage
