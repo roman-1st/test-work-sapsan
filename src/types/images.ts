@@ -45,7 +45,7 @@ interface getImageAction {
 
 interface getMoreImagesAction {
     type: ImagesActionTypes.GET_MORE_IMAGES,
-    payload: any[],
+    payload: Image[],
 }
 
 interface isPaginationAction {

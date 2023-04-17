@@ -13,9 +13,6 @@ const SearchContainer = () => {
   } = useActions();
   const { requestTitle, isLoading, images, noGetImages, isPagination, pageNumber } =
     useTypedSelector((state) => state.images);
-  console.log(images);
-
-  // const [page, setPage] = useState(1);
 
   const title = useRef<HTMLInputElement>(null);
   function setTitle(e: React.ChangeEvent<HTMLInputElement>) {
@@ -45,7 +42,7 @@ const SearchContainer = () => {
   ): ((event: Event) => void) => {
     return (event: any) => {
       if (
-        isPagination === false &&
+        !isPagination &&
         event.target.documentElement.scrollHeight -
           (event.target.documentElement.scrollTop + window.innerHeight) <
           100 &&
@@ -53,9 +50,8 @@ const SearchContainer = () => {
           (event.target.documentElement.scrollTop + window.innerHeight) >
           0
       ) {
-        isPaginationAction();
-        // setPage((prevState) => prevState + 1);
         getFetchMoreImagesAction(title, currentPage + 1);
+        isPaginationAction()
       }
     };
   };

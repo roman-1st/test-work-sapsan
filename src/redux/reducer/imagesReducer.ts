@@ -36,9 +36,9 @@ export const imagesReducer = (state = initialState, action: ImagesActions): Imag
                     ...state,
                     isLoading: false,
                     requestTitle: state.requestTitle,
-                    images: [...action.payload],
+                    images: action.payload,
                     noGetImages: false,
-                    pageNumber: 2,
+                    pageNumber: 1,
                 }
             }
             if (action.payload.length === 0) {
@@ -58,9 +58,8 @@ export const imagesReducer = (state = initialState, action: ImagesActions): Imag
                 isLoading: false,
                 images: [...state.images, ...action.payload],
                 noGetImages: false,
-
-                pageNumber: state.pageNumber + 1,
                 isPagination: false,
+                pageNumber: state.pageNumber + 1,
             }
         case ImagesActionTypes.IS_PAGINATION:
             return {
