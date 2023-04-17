@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0b87cc45.css",
+    "main.js": "/static/js/main.337c33ec.js",
+    "static/media/Loader.svg": "/static/media/Loader.0dc78c2a7e0620afe07c.svg",
+    "static/media/deletebuttoninput.svg": "/static/media/deletebuttoninput.a9a6cb2eca93940abe67.svg",
+    "static/media/inputImage.svg": "/static/media/inputImage.c9a2adaea27bc16b5bc8.svg",
+    "index.html": "/index.html",
+    "static/media/CloseModal.svg": "/static/media/CloseModal.baefeafa766983da1474.svg",
+    "main.0b87cc45.css.map": "/static/css/main.0b87cc45.css.map",
+    "main.337c33ec.js.map": "/static/js/main.337c33ec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0b87cc45.css",
+    "static/js/main.337c33ec.js"
+  ]
+}

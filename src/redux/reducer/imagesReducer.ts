@@ -5,7 +5,8 @@ const initialState: ImagesState = {
     isLoading: false,
     images: [],
     noGetImages: false,
-    pagination: 10,
+    pageNumber: 1,
+    isPagination: false,
     modalImage: null,
 }
 
@@ -34,8 +35,10 @@ export const imagesReducer = (state = initialState, action: ImagesActions): Imag
                 return {
                     ...state,
                     isLoading: false,
+                    requestTitle: state.requestTitle,
                     images: [...action.payload],
                     noGetImages: false,
+                    pageNumber: 2,
                 }
             }
             if (action.payload.length === 0) {
@@ -48,6 +51,21 @@ export const imagesReducer = (state = initialState, action: ImagesActions): Imag
             }
             return {
                 ...state,
+            }
+        case ImagesActionTypes.GET_MORE_IMAGES:
+            return {
+                ...state,
+                isLoading: false,
+                images: [...state.images, ...action.payload],
+                noGetImages: false,
+
+                pageNumber: state.pageNumber + 1,
+                isPagination: false,
+            }
+        case ImagesActionTypes.IS_PAGINATION:
+            return {
+                ...state,
+                isPagination: true,
             }
 
         case ImagesActionTypes.OPEN_MODAL:

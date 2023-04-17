@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useActions } from "../hooks/useActions";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 import "./SearchContainer.css";
@@ -8,30 +8,66 @@ const SearchContainer = () => {
     setRequesTitleAction,
     removeRequestTitleAction,
     getFetchImagesAction,
+    getFetchMoreImagesAction,
+    isPaginationAction,
   } = useActions();
-  const { requestTitle, isLoading, images, noGetImages } = useTypedSelector(
-    (state) => state.images
-  );
+  const { requestTitle, isLoading, images, noGetImages, isPagination, pageNumber } =
+    useTypedSelector((state) => state.images);
+  console.log(images);
+
+  // const [page, setPage] = useState(1);
 
   const title = useRef<HTMLInputElement>(null);
   function setTitle(e: React.ChangeEvent<HTMLInputElement>) {
     setRequesTitleAction(String(title.current?.value));
   }
 
-  function getImages() {
-    getFetchImagesAction(requestTitle);
-  }
-
-  function search(e: any) {
-    if (e.keyCode == 13) getFetchImagesAction(requestTitle);
-  }
-
-  const removeRequestTitle = (event: React.MouseEvent<HTMLDivElement>): void => {
+  const removeRequestTitle = (
+    event: React.MouseEvent<HTMLDivElement>
+  ): void => {
     const target = event.target as HTMLElement;
     if (target.classList.value === "inputBlock") {
       removeRequestTitleAction();
     }
   };
+
+  function getImages() {
+    getFetchImagesAction(requestTitle, pageNumber);
+  }
+
+  function search(e: any) {
+    if (e.keyCode == 13) getFetchImagesAction(requestTitle, pageNumber);
+  }
+
+  const handleScroll = (
+    title: string,
+    currentPage: number
+  ): ((event: Event) => void) => {
+    return (event: any) => {
+      if (
+        isPagination === false &&
+        event.target.documentElement.scrollHeight -
+          (event.target.documentElement.scrollTop + window.innerHeight) <
+          100 &&
+        event.target.documentElement.scrollHeight -
+          (event.target.documentElement.scrollTop + window.innerHeight) >
+          0
+      ) {
+        isPaginationAction();
+        // setPage((prevState) => prevState + 1);
+        getFetchMoreImagesAction(title, currentPage + 1);
+      }
+    };
+  };
+
+  useEffect(() => {
+    const scrollHandler = handleScroll(requestTitle, pageNumber);
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  }, [isPagination]);
 
   return (
     <div

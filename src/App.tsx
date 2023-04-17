@@ -11,6 +11,7 @@ function App() {
     height: isLoading || images.length > 0 || noGetImages? "104px" : "340px"
   }
 
+
   return (
     <div className="App">
       <div
